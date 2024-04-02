@@ -40,10 +40,7 @@ def is_pali(a):
         temp //= 10
     return reverse == a
 
-if is_pali(a):
-    print(" it is a palindrome!")
-else:
-    print(" it's not a palindrome.")
+
 #=================================================================================================================
 
 def main():
@@ -53,7 +50,10 @@ def main():
     # prime(a)
     #postive(a)
     #palidrome(b)
-    is_pali(a)
+    if is_pali(a):
+        print(" it is a palindrome!")
+    else:
+        print(" it's not a palindrome.")
 
 if __name__=="__main__":
     main()
