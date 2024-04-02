@@ -22,9 +22,7 @@ def prime(a):
                 print("the number is prime")
                 break
     
-'''
-checking whether given is positive or negative
-'''
+ 
 def postive(a):
     if a>0 and a==0 :
         print("the number is positive ")
