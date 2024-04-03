@@ -58,3 +58,12 @@ print("Result:", result)
 add = lambda x,y:x+y
 print("the result is :",add(3,4))
 
+#====================Logging=========================================
+logging.basicConfig(level=logging.INFO)
+    
+logging.info("counting start")
+
+for i in range(1,6):
+    print(i)
+logging.info("counting end")
+
