@@ -59,9 +59,7 @@ print(l1[8])
 '''
 How do you convert a tuple into a list, and vice versa?
 '''
-l1=(1,2,5,4,2,54,1)
-l2=list(l1)
-print(l2)
+
 
 #======================= Dictionary ==========================================
 '''
@@ -93,8 +91,8 @@ for key , values in l1.items():
 '''
 What are dictionary comprehensions? Provide an example
 '''
-d1={"gujrata":"ahmedabad","kerela":"kochi","goa":"bagha beach","maharastra":"mumbai"}
 #dict={ key:experssion for in iterable}
+d1={"gujrata":"ahmedabad","kerela":"kochi","goa":"bagha beach","maharastra":"mumbai"}
 
 d2={key:values for (key,values) in d1.items() }
 print(d2)
@@ -107,9 +105,9 @@ print(l2)
 
 # dict function dict1={key : funct for i in iterable}
 def temp(values):
-    if values > 80:
+    if values < 80:
         return("hot")
-    elif values<= 60 and values>=79:
+    elif values>= 60 and values<=79:
         return("warm")
     else:
         return("cold")
