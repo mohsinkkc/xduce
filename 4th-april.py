@@ -92,10 +92,23 @@ d1={"gujrata":"ahmedabad","kerela":"kochi","goa":"bagha beach","maharastra":"mum
 d2={key:values for (key,values) in d1.items() }
 print(d2)
 
-# dict (if condtion) dict1={key:value for (key,value) in dict condtion}
+# dict (if condtion) dict1={key: (condtion if/els) for (key,value) in dict }
 
+l1={"kerela":60,"goa":55,"chennai":71,"gujarat":88,"maharastra":64}
+l2={key: ("hot" if values>=60 else "cold") for (key,values) in l1.items()  }
+print(l2)
 
-
+# dict function dict1={key : funct for i in iterable}
+def temp(values):
+    if values > 80:
+        return("hot")
+    elif values<= 60 and values>=79:
+        return("warm")
+    else:
+        return("cold")
+l1={"kerela":60,"goa":55,"chennai":71,"gujarat":88,"maharastra":64}
+l2={key:temp(values) for (key,values) in l1.items()}
+print(l2)
 #========================= Set ========================================
 
 '''
