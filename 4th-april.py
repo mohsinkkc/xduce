@@ -16,6 +16,11 @@ list=[1,3,5,9,2,4,5,4]
 list.sort()
 print(list)
 
+#============ list to tuple ====================
+l1=[1,5,4,8,5,4,4,5,4]
+l2=tuple(l1)
+print(l2)
+
 '''
 Can you explain the difference between list.sort() and sorted() functions?
 
@@ -71,12 +76,12 @@ Explain the difference between dict.keys() , dict.values() , and dict.items() me
 '''
 
 l1={"name":"mohsin","age":30,"address":"narol"}
-#====keys======
+#====keys===========================================================
 print(l1)
 print(l1.keys())
-#=======values===
+#=======values======================================================
 print(l1.values())
-#=======items=====
+#=======items=======================================================
 print(l1.items())
 
 '''
