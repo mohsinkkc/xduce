@@ -54,7 +54,9 @@ print(l1[8])
 '''
 How do you convert a tuple into a list, and vice versa?
 '''
-
+l1=(1,2,5,4,2,54,1)
+l2=list(l1)
+print(l2)
 
 #======================= Dictionary ==========================================
 '''
