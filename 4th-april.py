@@ -130,3 +130,9 @@ print(l1)
 l1.update("rabit")
 print(l1)
 
+'''
+What are set comprehensions? Provide an example.
+'''
+l1={'cat','dog','ant','elephant'}
+l2={i for i in l1}
+print(l2)
