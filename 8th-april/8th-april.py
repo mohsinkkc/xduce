@@ -2,20 +2,24 @@ import pandas as pd
 import os
 
 def process_payroll(payroll_file, employee_data):
-    salaries = {}
-
-    with open(payroll_file, 'r') as file:
+   salaries = {}
+   pending_employees = {}
+   with open(payroll_file, 'r') as file:
         for line in file:
-            emp_code, work_days = line.strip().split(',')
-            work_days = int(work_days)
-            if emp_code in employee_data:
-                base_wage = employee_data[emp_code][base_wage]
-                salary = base_wage * work_days
-                salaries[emp_code] = salary
+            parts = line.strip().split(" ")
+            if len(parts) >= 2:
+                emp_code = parts[0]
+                work_days = int(parts[1])
+                employee = employee_data.get(emp_code)
+                print(line,"10")
+                if employee:
+                    base_wage = employee['base_wage']
+                    salary = work_days * base_wage
+                    salaries.append({'emp_code': emp_code, 'salary': salary})
+                else:
+                    pending_employees.append(emp_code)
             else:
-                print(f"Employee with code {emp_code} not found in the employee data.")
-
-    return salaries
+                print(f"lines are : {line}")
 
 def save_salary_data(salaries, output_file):
     with open(output_file, 'w') as file:
@@ -35,7 +39,7 @@ def process_employee_data(employee_excel_file):
 
     
     employee_data['base_wage'] = employee_data['emp_code'].map(employee_base_wages)
-    employee_data['salary'] = employee_data['base_wage'] * employee_data['work_days']  
+    employee_data['salary'] = employee_data['base_wage0'] * employee_data['work_days']  
 
     return employee_data
 
@@ -47,9 +51,10 @@ def main():
         'EMP002': {'base_wage': 25},
         'EMP003': {'base_wage': 30}
     }
-    payroll_file = "payroll.txt"
+    payroll_file ='payroll.txt'
+    print(payroll_file, "payroll_file 49")
     salaries = process_payroll(payroll_file, employee_data)
-    save_salary_data(salaries, "salaries.txt")
+    save_salary_data(salaries,"salaries.txt") 
     
     employee_excel_file = "ActiveEmployeeData.xlsx"    
     processed_employee_data = process_employee_data(employee_excel_file)
