@@ -24,3 +24,18 @@ data.to_csv('New_File.csv', index=False)
 
 data.to_csv('data.csv', index=False)
 
+
+#drop something 
+data.drop(2, inplace=True) 
+print(data)
+
+#function using in pandas
+
+def Salary(a):
+    if a <= 30:
+        return 30000
+    else:
+        return 20000
+
+data['Salary'] =  data['Age'].apply(Salary)
+print(data)
