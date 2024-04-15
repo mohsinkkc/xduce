@@ -1,0 +1,25 @@
+Name,Age,Location,Gender,Category
+John,25.0,New York,Male,younger
+Alice,30.0,Los Angeles,Female,
+Bob,22.0,Chicago,Male,younger
+Emma,28.0,San Francisco,Female,younger
+Michael,35.0,Boston,Male,Older
+Sophia,27.0,Miami,Female,younger
+David,,Dallas,Male,
+Olivia,32.0,Seattle,Female,Older
+James,29.0,Philadelphia,Male,younger
+Ella,26.0,Atlanta,Female,younger
+William,33.0,Houston,Male,Older
+Ava,31.0,Denver,Female,Older
+Matthew,,Phoenix,Male,
+Mia,29.0,Detroit,Female,younger
+Andrew,36.0,Portland,Male,Older
+Isabella,28.0,San Diego,Female,younger
+Christopher,34.0,Minneapolis,Male,Older
+Charlotte,30.0,Orlando,Female,
+Daniel,37.0,Austin,Male,Older
+Grace,23.0,Nashville,Female,younger
+Alex,31.0,Chicago,Male,Older
+Ryan,27.0,San Francisco,Male,younger
+Tyler,29.0,Seattle,Male,younger
+Brandon,32.0,Los Angeles,Male,Older
