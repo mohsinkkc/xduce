@@ -10,7 +10,7 @@ class Student:
 s1=Student("mohsin",29)
 print(f"name is :{s1.name} and age : {s1.age}")
 
-#===========================================Calculator task======================================================================================
+#===========================================basic task of Calculator task======================================================================================
 class Cal:
     def add(self):
         self.n1=int(input("enter the number 1:"))
@@ -26,7 +26,7 @@ print("the addition is :",ob1.add())
 print("the sub is :",ob1.sub())
 print("the multiplication is :",ob1.mul())
 
-#=================================================Customer Account details task =============================================================
+#=================================================intermeditae task Customer Account details task =============================================================
 class Account:
     def __init__(self,acc_no,balance):
         
