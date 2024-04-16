@@ -26,7 +26,7 @@ print("the addition is :",ob1.add())
 print("the sub is :",ob1.sub())
 print("the multiplication is :",ob1.mul())
 
-#=================================================Data Encapsulation and Abstraction program=============================================================
+#=================================================Customer Account details task =============================================================
 class Account:
     def __init__(self,acc_no,balance):
         
