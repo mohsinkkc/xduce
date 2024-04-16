@@ -1,5 +1,5 @@
 #==========================================================class=========================================================================================
-# =====================================================single Inheritance==================================================================================
+# ======================================================================================================================================================
 
 class Student:
     def __init__(self,name,age):
@@ -14,28 +14,32 @@ print(f"name is :{s1.name} and age : {s1.age}")
 
 #=================================================Data Encapsulation and Abstraction program=============================================================
 class Account:
+    def __init__(self,acc_no,balance):
+        
+        
+        self.acc_no=acc_no
+        self.balance=balance
 
-    def __init__(self,acc,bal):
-        self.acc=acc
-        self.bal=bal
+    def debit(self,debit_amount):
+        self.balance -= debit_amount
+        print(f"the amount if Rs {debit_amount} is debited from your account, the account number is : {self.acc_no} and the balance available is :",self.get_balance())
 
-    def debit(self,amount):
-        self.bal -= amount
-        print(f"the amount debites from your account is :{amount}")
-        print("the total amount is ",self.get_balance())
-
-    def credit(self,amount):
-        self.bal += amount
-        print("the Amount Credited to your Account is :",amount)
-        print("the total amount is ",self.get_balance())
-
+    def credit(self,credit_amount):
+        self.balance += credit_amount
+        print(f"the amount of Rs {credit_amount} is credited to your account , the account number is :{self.acc_no} and the balance available is :",self.get_balance())
 
     def get_balance(self):
-        return self.bal
+        return self.balance
 
-ac1=Account("1234",10000)
-ac1.debit(500)
-ac1.credit(2600)
+
+acc_no=int(input("Enter the account number :"))
+balance=0
+c5=Account(acc_no,balance)
+credit_amount=int(input("enter the amount to Credited :"))
+debit_amount=int(input("enter the amount to be Debit:"))
+c5.credit(credit_amount)
+c5.debit(debit_amount)
+print(f"from the Account : {c5.acc_no} the Available Balance in your account is : {c5.get_balance()}")
 
 #=============================================Static method============================================================ 
 
@@ -166,7 +170,7 @@ class Person:
     @classmethod
     def changename(cls,name):
         # self.Person.name="mohsin"
-        cls.name="mohsin"
+        cls.name=name
 
 p1=Person()
 p1.changename("mkkc")
