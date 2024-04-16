@@ -29,8 +29,6 @@ print("the multiplication is :",ob1.mul())
 #=================================================intermeditae task Customer Account details task =============================================================
 class Account:
     def __init__(self,acc_no,balance):
-        
-        
         self.acc_no=acc_no
         self.balance=balance
 
