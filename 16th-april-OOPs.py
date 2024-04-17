@@ -26,7 +26,7 @@ print("the addition is :",ob1.add())
 print("the sub is :",ob1.sub())
 print("the multiplication is :",ob1.mul())
 
-#=================================================intermeditae task Customer Account details task =============================================================
+#================================================= Customer Account details task =============================================================
 class Account:
     def __init__(self,acc_no,balance):
         self.acc_no=acc_no
