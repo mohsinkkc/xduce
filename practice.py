@@ -223,3 +223,82 @@ print(f"the name of item is :{c9.name} and the price is {c9.price}")
 
 print(" Is c10 < c9 :",c10 < c9)
 
+#============================================================ rock Paper scissor========================================================================== 
+# import random
+
+# user_win=0
+# computer_win=0
+# option=["rock","paper","scissor"]
+
+
+# while True:
+#     user_input=input("enter your option (rock /paper / scissor) or q to quit :")
+
+#     if user_input == "q":
+#         break
+    
+#     if user_input not in option:
+#         continue
+
+#     random_number=random.randint(0,2)
+
+#     computer_pick=option[random_number]
+#     print("the computer pick " ,computer_pick)
+
+#     if user_input == "scissor" and computer_pick == "paper":
+#         print("you won ")
+#         user_win +=1
+#     elif user_input == "rock" and computer_pick == "scissor":
+#         print("you won")
+#         user_win += 1
+
+#     elif user_input == "paper" and computer_pick=="rock":
+#         print("you won ")
+#         user_win += 1
+#     else:
+#         print("computer win")
+#         computer_win += 1
+
+# print("you win",user_win ,"times")
+# print("computer win",computer_win,"times")
+# print("goodbye")
+
+
+#==============================================================password Manager==========================================================
+# from cryptography.fernet import Fernet
+
+# master=input("Enter the Master Password :")
+
+# def view():
+#     with open('Account.txt','r') as f:
+#         for line in f.readlines():
+#             data=line.rstrip()
+#             user, passw = data.split("|")
+#             print("user :", user ," | password",passw)
+
+# def add():
+#     name=input("Enter the Account name :")
+#     pswd=input("Enter the Password :")
+#     with open('Account.txt','a') as f:
+#         f.write(name + "|" + pswd + "\n" )
+
+# while True:
+#     a=int(input('''
+#     welcome to Bank of World
+#     enter your option
+#     1)view Account
+#     2)Add details
+#     3)Quit
+#     enter your option:'''))
+#     if a==1:
+#         view()
+#     elif a==2:
+#         add()
+#     elif a==3:
+#         print("Thank you Visit Again")
+#         break
+#     else:
+#         print("Kindly Select the valid Option")
+#         continue
+
+#=======================================================6 pig Game==============================================================
