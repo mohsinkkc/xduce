@@ -302,3 +302,47 @@ print(" Is c10 < c9 :",c10 < c9)
 #         continue
 
 #=======================================================6 pig Game==============================================================
+
+
+import random
+
+def roll():
+    min_val=1
+    max_val=6
+    val=random.randint(min_val,max_val)
+
+    return roll
+
+while True:
+    player=input("enter the number of player between (2-4) :")
+    if player.isdigit():
+        player=int(player)
+        if 2<=player<=4:
+            break
+        else:
+            print("the palyer must in between 2-4")
+    else:
+        print("invalid details")
+
+max_score=50
+player_score=[0 for _ in range(player)]
+
+while max(player_score) < max_score:
+    for player_indx in range(player):
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
