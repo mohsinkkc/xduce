@@ -309,7 +309,7 @@ import random
 def roll():
     min_val=1
     max_val=6
-    val=random.randint(min_val,max_val)
+    roll=random.randint(min_val,max_val)
 
     return roll
 
@@ -317,7 +317,7 @@ while True:
     player=input("enter the number of player between (2-4) :")
     if player.isdigit():
         player=int(player)
-        if 2<=player<=4:
+        if 2 <= player <= 4:
             break
         else:
             print("the palyer must in between 2-4")
@@ -329,30 +329,33 @@ player_score=[0 for _ in range(player)]
 
 while max(player_score) < max_score:
     for player_indx in range(player):
-        print(f"the player {player_indx} turn has started")
+        print("\nthe player", player_indx + 1," turn has started\n")
+        print("the player score is :",player_score[player_indx],"\n")
         current_score = 0
 
         while True:
-            should_roll=input("would you like to roll ? (y/n):")
-            if should_roll.lower()=="y":
-                value=roll()
-            else:
+            should_roll=input("would you like to roll ? (y):")
+            if should_roll != "y":
                 break
-            if value==1:
+
+            value = roll()
+            if value == 1:
                 print("you rolled 1 ,Turn done")
-                current_score=0
+                current_score = 0
                 break
             else:
                 current_score += value
                 print("you rolled the value",value)
 
             print("your score is :",current_score)
+            break
+        player_score[player_indx] += current_score
+        print("your total Score is :", player_score[player_indx])
+        
 
-        player_score[player_indx]+=current_score
-        print("your total Score is :",player_score[player_indx])
-
-
-
+max_score = max(player_score)
+winning_idx = player_score.index(max_score)
+print("player number ",winning_idx+1,"is the winner with score is ",max_score)
 
 
 
