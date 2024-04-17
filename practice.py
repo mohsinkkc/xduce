@@ -324,34 +324,34 @@ while True:
     else:
         print("invalid details")
 
-max_score=50
+max_score=25
 player_score=[0 for _ in range(player)]
 
 while max(player_score) < max_score:
     for player_indx in range(player):
         print("\nthe player", player_indx + 1," turn has started\n")
-        print("the player score is :",player_score[player_indx],"\n")
+        print("the player score is :", player_score[player_indx], "\n")
         current_score = 0
 
         while True:
-            should_roll=input("would you like to roll ? (y):")
+            should_roll=input("would you like to roll (y)?:")
             if should_roll != "y":
                 break
 
             value = roll()
             if value == 1:
                 print("you rolled 1 ,Turn done")
-                current_score = 0
+                current_score += value
                 break
             else:
                 current_score += value
                 print("you rolled the value",value)
 
             print("your score is :",current_score)
-            break
+
         player_score[player_indx] += current_score
         print("your total Score is :", player_score[player_indx])
-        
+            
 
 max_score = max(player_score)
 winning_idx = player_score.index(max_score)
