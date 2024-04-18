@@ -360,6 +360,16 @@ print(" Is c10 < c9 :",c10 < c9)
 
 #===========================================================import Data from website using selenium==================================================================
 
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from webdriver_manager import ChromeDriverManager
+import pandas as pd
+
+url="https://www.investing.com/holiday-calendar/"
+
+driver=webdriver.chrome(service=Service(ChromeDriverManager().install()))
+
 
 
 
