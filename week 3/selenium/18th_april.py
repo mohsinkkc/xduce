@@ -30,6 +30,12 @@ for row in rows:
         else:
             data_rows.append([cell.text.strip() for cell in cells])
 
+# num_colmns=len(columns)
+# data_rows_filter=[row for row in data_rows if len(row) == num_colmns]
+
+# print(data_rows_filter)
+# pf = pd.DataFrame(data_rows_filter, columns=columns)
+
 pf = pd.DataFrame(data_rows, columns=columns)
 
 

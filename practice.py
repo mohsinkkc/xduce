@@ -359,26 +359,71 @@ print(" Is c10 < c9 :",c10 < c9)
 
 
 #===========================================================import Data from website using selenium==================================================================
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from webdriver_manager import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
+import time
 import pandas as pd
+
+url = "https://www.investing.com/holiday-calendar/"
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+driver.get(url)
+
+table=driver.find_element(By.ID,'holidayCalendarData')
+rows=driver.find_elements(By.TAG_NAME,'tr')
+
+columns=[]
+data=[]
+
+for row in rows:
+    cells=row.find_elements(By.TAG_NAME,'th') + row.find_elements(By.TAG_NAME,'td')
+    if len(cells)>0:
+        if not columns:
+            columns=[cell.text.strip() for cell in cells]
+        else:
+            data.append([cell.text.strip() for cell in cells])
+
+num_colmns=len(columns)
+data_rows=[row for row in data if len(row) == num_colmns]
+
+print(data_rows)
+
+pf=pd.DataFrame(data_rows, columns=columns)
+excel_file='Holiday.xlsx'
+pf.to_excel(excel_file)
+
+print("the Data is Exported Successfully",excel_file)
+
+#===================================================Web scraping data using BS4==========================================================
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
 
 url="https://www.investing.com/holiday-calendar/"
 
-driver=webdriver.chrome(service=Service(ChromeDriverManager().install()))
+response=requests.get(url)
 
+soup=BeautifulSoup(response.content,'html.parser')
 
+table=soup.find('table',{'id':'holidayCalendarData'})
 
+columns=[]
+data=[]
 
+for row in table.find_all('tr'):
+    cells=row.find_all(['th','td'])
+    if len(cells) > 0:
+        if not columns:
+            columns=[cell.text.strip() for cell in cells]
+        else:
+            data.append([cell.text.strip() for cell in cells])
 
+pf=pd.DataFrame(data, columns=columns)
+excel_file='Beautiful_Holiday.xlsx'
+pf.to_excel(excel_file)
 
-
-
-
-
-
-
+print("Your BeatifulSoap file has been Successfully Exported the Data to ",excel_file)
 
