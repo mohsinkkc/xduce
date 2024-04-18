@@ -391,10 +391,12 @@ data_rows=[row for row in data if len(row) == num_colmns]
 print(data_rows)
 
 pf=pd.DataFrame(data_rows, columns=columns)
-excel_file='Holiday.xlsx'
+excel_file='Selenium_Holiday.xlsx'
 pf.to_excel(excel_file)
 
-print("the Data is Exported Successfully",excel_file)
+print("the Data is Exported Successfully",excel_file ,"\n")
+
+print()
 
 #===================================================Web scraping data using BS4==========================================================
 import requests
@@ -421,6 +423,7 @@ for row in table.find_all('tr'):
         else:
             data.append([cell.text.strip() for cell in cells])
 
+print(data)
 pf=pd.DataFrame(data, columns=columns)
 excel_file='Beautiful_Holiday.xlsx'
 pf.to_excel(excel_file)
