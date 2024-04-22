@@ -16,12 +16,25 @@ cursor = connection.cursor()
 # cursor.execute("create database collage")
 
 #To create table
-cursor.execute("create table student (id int primary key,name varchar(30) )")
+# cursor.execute("create table student (id int primary key,name varchar(30) )")
+
+#To Insert The data into table
+# cursor.execute(
+#     '''
+#     insert into student (id,name)
+#     values(101,'mohsin'),
+#     (102,'devanshu'),
+#     (103,'Faizan'),
+#     (104,'kaif')
+#     '''
+# )
+
 
 query = "SELECT * FROM student"
 
 cursor.execute(query)
 
+# To fetch all data
 rows = cursor.fetchall()
 
 for row in rows:
