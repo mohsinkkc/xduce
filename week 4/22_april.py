@@ -100,5 +100,3 @@ drop table dept;
 
 
 
-
-
