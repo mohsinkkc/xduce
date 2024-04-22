@@ -24,9 +24,9 @@ values(1,'mohsin',96,'A','Pune'),
 '''
 
 # To check all item from table
-'''
-select * from student;
-'''
+
+# select * from student;
+
 # to check ,to delete , update and ordering form
 '''
 select city,avg(marks) from student
