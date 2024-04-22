@@ -98,6 +98,3 @@ drop table dept;
 
 
 
-
-
-
