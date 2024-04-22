@@ -1,4 +1,42 @@
 #====================================SQL=================================================================================
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="localhost",
+    username="root",
+    password="XDuce@123",
+    database="collage",
+    port="3306"
+
+)
+
+cursor = connection.cursor()
+#To create Database
+
+# cursor.execute("create database collage")
+
+#To create table
+cursor.execute("create table student (id int primary key,name varchar(30) )")
+
+query = "SELECT * FROM student"
+
+cursor.execute(query)
+
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+cursor.close()
+connection.close()
+# print(connection)
+
+
+
+
+
+
+
 #to create Database
 '''
 create database collage;
