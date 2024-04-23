@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS student.students (
 );
 
 
+
 """)
 cursor.execute("CREATE TABLE IF NOT EXISTS student.teacher (id int primary key, salary int) ")
 
