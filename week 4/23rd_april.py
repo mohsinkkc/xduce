@@ -42,6 +42,7 @@ cursor.execute("CREATE TABLE IF NOT EXISTS student.teacher (id int primary key, 
 # """)
 # cursor.execute("INSERT INTO student.teacher VALUE (109,61000)")
 
+
 # ex = "SELECT * FROM student.teacher"
 # cursor.execute(ex)
 # teachers = cursor.fetchall()
