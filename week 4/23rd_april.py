@@ -93,7 +93,7 @@ cursor.execute("CREATE TABLE IF NOT EXISTS student.teacher (id int primary key, 
 # cursor.execute(order)
 
 #======================================HAVING CLAUSE=====================================================================
-having="SELECT name, avg(marks) FROM student.students GROUP BY name HAVING avg(marks) > 70 "
+having="SELECT name, avg(marks) FROM student.students GROUP BY name HAVING avg(marks) > 80 "
 cursor.execute(having)
 rst = cursor.fetchall()
 
