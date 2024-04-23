@@ -15,7 +15,7 @@ cursor = connection.cursor()
 #======================================To create Database=============================
 # cursor.execute("create database collage")
 
-#To create table
+#=======================================To create table=================================
 # cursor.execute("create table student (id int primary key,name varchar(30) )")
 
 #==========================To Insert The data into table==================================
@@ -29,6 +29,7 @@ cursor = connection.cursor()
 #     '''
 # )
 
+#===================================DISPLAY DATA=============================================
 
 query = "SELECT * FROM student"
 
