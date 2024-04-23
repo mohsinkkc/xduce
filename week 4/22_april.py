@@ -40,14 +40,30 @@ rows = cursor.fetchall()
 for row in rows:
     print(row)
 
-update_query = "UPDATE student SET name = %s WHERE id = %s "
+#================================UPDATE=========================================
 
-# Define values to be updated
-new_value = "dev"
-condition_value = 101
+# update_query = "UPDATE student SET name = %s WHERE id = %s "
 
+# # Define values to be updated
+# new_value = "dev"
+# condition_value = 101
+#cursor.execute(update_query, (new_value, condition_value))
+
+#=========================DELETE===================================================
+
+# delete="DELETE * FROM collage.student WHERE id = 102"
+# cursor.execute(delete)
+
+#=====================ALTER=======================================================
+
+# alter="ALTER TABLE collage.student ADD COLUMN  age int default=19"
+# cursor.execute(alter)
+
+result=cursor.fetchall()
+
+for i in result:
+    print(i)
 # Execute the update query
-cursor.execute(update_query, (new_value, condition_value))
 
 
 # Commit the changes
@@ -92,6 +108,8 @@ values(1,'mohsin',96,'A','Pune'),
 # select * from student;
 
 # to check ,to delete , update and ordering form
+
+#=======================ORDER BY==================================
 '''
 select city,avg(marks) from student
 GROUP BY city 
@@ -99,11 +117,14 @@ order by city asc;
 
 SET SQL_SAFE_UPDATES = 0;
 
+#=======================UPDATE========================================
 UPDATE student
 SET grade="O" 
 WHERE grade = 'A';
 
 SELECT * FROM student;
+
+#=========================DELETE========================================
 
 DELETE FROM student
 where marks < 30;
@@ -137,10 +158,14 @@ update dept
 set id=105
 where id = 102;
 
+#===========================ALTER=============================================
+
 alter table student
 add column age int not null default=19;
 
 select * from student;
+
+#==================DROP==========================================================
 
 alter table student
 drop column age ;
