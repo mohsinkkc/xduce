@@ -19,8 +19,6 @@ CREATE TABLE IF NOT EXISTS student.students (
     subject varchar(60)
 );
 
-
-
 """)
 cursor.execute("CREATE TABLE IF NOT EXISTS student.teacher (id int primary key, salary int) ")
 
