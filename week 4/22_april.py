@@ -11,8 +11,8 @@ connection = mysql.connector.connect(
 )
 
 cursor = connection.cursor()
-#To create Database
 
+#To create Database
 # cursor.execute("create database collage")
 
 #To create table
@@ -40,11 +40,11 @@ rows = cursor.fetchall()
 for row in rows:
     print(row)
 
-update_query = "UPDATE student SET name = 'dev' WHERE id = 1 "
+update_query = "UPDATE student SET name = %s WHERE id = %s "
 
 # Define values to be updated
-new_value = "new_value"
-condition_value = "condition_value"
+new_value = "dev"
+condition_value = 101
 
 # Execute the update query
 cursor.execute(update_query, (new_value, condition_value))
