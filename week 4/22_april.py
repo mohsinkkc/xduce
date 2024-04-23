@@ -40,6 +40,19 @@ rows = cursor.fetchall()
 for row in rows:
     print(row)
 
+update_query = "UPDATE student SET name = 'dev' WHERE id = 1 "
+
+# Define values to be updated
+new_value = "new_value"
+condition_value = "condition_value"
+
+# Execute the update query
+cursor.execute(update_query, (new_value, condition_value))
+
+
+# Commit the changes
+connection.commit()
+
 cursor.close()
 connection.close()
 # print(connection)
