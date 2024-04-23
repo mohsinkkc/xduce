@@ -21,17 +21,22 @@ CREATE TABLE IF NOT EXISTS student.students (
 
 """)
 
-cursor.execute("""
-INSERT INTO IF NOT EXISTS student.students (id,name,marks,subject)
-VALUES(101,'mohsin',95,'maths'),
-    (102,'devanshu',82,'english'),
-    (103,'faizan',54,'hindi'),
-    (104,'harsh',78,'maths')
+# cursor.execute("""
+# INSERT INTO IF NOT EXISTS student.students (id,name,marks,subject)
+# VALUES(101,'mohsin',95,'maths'),
+#     (102,'devanshu',82,'english'),
+#     (103,'faizan',54,'hindi'),
+#     (104,'harsh',78,'maths')
 
-""")
+# """)
+
 
 query="SELECT * FROM student.students"
 cursor.execute(query)
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
 
 conn.commit()
 
