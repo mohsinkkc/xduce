@@ -359,77 +359,144 @@ print(" Is c10 < c9 :",c10 < c9)
 
 
 #===========================================================import Data from website using selenium==================================================================
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-import time
-import pandas as pd
+# from selenium import webdriver
+# from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.common.by import By
+# from webdriver_manager.chrome import ChromeDriverManager
+# import time
+# import pandas as pd
 
-url = "https://www.investing.com/holiday-calendar/"
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+# url = "https://www.investing.com/holiday-calendar/"
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-driver.get(url)
+# driver.get(url)
 
-table=driver.find_element(By.ID,'holidayCalendarData')
-rows=driver.find_elements(By.TAG_NAME,'tr')
+# table=driver.find_element(By.ID,'holidayCalendarData')
+# rows=driver.find_elements(By.TAG_NAME,'tr')
 
-columns=[]
-data=[]
+# columns=[]
+# data=[]
 
-for row in rows:
-    cells=row.find_elements(By.TAG_NAME,'th') + row.find_elements(By.TAG_NAME,'td')
-    if len(cells)>0:
-        if not columns:
-            columns=[cell.text.strip() for cell in cells]
-        else:
-            data.append([cell.text.strip() for cell in cells])
+# for row in rows:
+#     cells=row.find_elements(By.TAG_NAME,'th') + row.find_elements(By.TAG_NAME,'td')
+#     if len(cells)>0:
+#         if not columns:
+#             columns=[cell.text.strip() for cell in cells]
+#         else:
+#             data.append([cell.text.strip() for cell in cells])
 
-num_colmns=len(columns)
-data_rows=[row for row in data if len(row) == num_colmns]
+# num_colmns=len(columns)
+# data_rows=[row for row in data if len(row) == num_colmns]
 
-print(data_rows)
+# print(data_rows)
 
-pf=pd.DataFrame(data_rows, columns=columns)
-excel_file='Selenium_Holiday.xlsx'
-pf.to_excel(excel_file)
+# pf=pd.DataFrame(data_rows, columns=columns)
+# excel_file='Selenium_Holiday.xlsx'
+# pf.to_excel(excel_file)
 
-print("the Data is Exported Successfully",excel_file ,"\n")
+# print("the Data is Exported Successfully",excel_file ,"\n")
 
-print()
+# print()
 
 #===================================================Web scraping data using BS4==========================================================
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
+# import requests
+# from bs4 import BeautifulSoup
+# import pandas as pd
 
 
-url="https://www.investing.com/holiday-calendar/"
+# url="https://www.investing.com/holiday-calendar/"
 
-response=requests.get(url)
+# response=requests.get(url)
 
-soup=BeautifulSoup(response.content,'html.parser')
-
-
-table=soup.find('table',{'id':'holidayCalendarData'})
-
-columns=[]
-data=[]
-
-for row in table.find_all('tr'):
-    cells=row.find_all(['th','td'])
-    if len(cells) > 0:
-        if not columns:
-            columns=[cell.text.strip() for cell in cells]
-        else:
-            data.append([cell.text.strip() for cell in cells])
-
-print(data)
-pf=pd.DataFrame(data, columns=columns)
-excel_file='Beautiful_Holiday.xlsx'
-pf.to_excel(excel_file)
-
-print("Your BeatifulSoap file has been Successfully Exported the Data to ",excel_file)
+# soup=BeautifulSoup(response.content,'html.parser')
 
 
-#===============================================================
+# table=soup.find('table',{'id':'holidayCalendarData'})
+
+# columns=[]
+# data=[]
+
+# for row in table.find_all('tr'):
+#     cells=row.find_all(['th','td'])
+#     if len(cells) > 0:
+#         if not columns:
+#             columns=[cell.text.strip() for cell in cells]
+#         else:
+#             data.append([cell.text.strip() for cell in cells])
+
+# print(data)
+# pf=pd.DataFrame(data, columns=columns)
+# excel_file='Beautiful_Holiday.xlsx'
+# pf.to_excel(excel_file)
+
+# print("Your BeatifulSoap file has been Successfully Exported the Data to ",excel_file)
+
+
+#=================================================== ACID PROPERTIES USING MYSQL=================================
+
+import mysql.connector
+
+# Connect to MySQL database
+conn = mysql.connector.connect(
+    host="localhost",
+    username="root",
+    password="XDuce@123",
+    database="person"
+)
+cursor = conn.cursor()
+
+# Create a table for demonstration
+cursor.execute("CREATE TABLE IF NOT EXISTS transactions (id INT AUTO_INCREMENT PRIMARY KEY, amount DECIMAL(10, 2))")
+
+def insert_transaction(amount):
+    # Insert a transaction into the table
+    sql = "INSERT INTO transactions (amount) VALUES (%s)"
+    cursor.execute(sql, (amount,))
+    conn.commit()
+    print("Transaction inserted successfully.")
+
+def read_transactions():
+    # Read all transactions from the table
+    cursor.execute("SELECT * FROM transactions")
+    transactions = cursor.fetchall()
+    print("All Transactions:")
+    for transaction in transactions:
+        print(transaction)
+
+def update_transaction(transaction_id, new_amount):
+    # Update a transaction
+    sql = "UPDATE transactions SET amount = %s WHERE id = %s"
+    cursor.execute(sql, (new_amount, transaction_id))
+    conn.commit()
+    print("Transaction updated successfully.")
+
+def delete_transaction(transaction_id):
+    # Delete a transaction
+    sql = "DELETE FROM transactions WHERE id = %s"
+    cursor.execute(sql, (transaction_id,))
+    conn.commit()
+    print("Transaction deleted successfully.")
+
+try:
+    # Perform transactions
+    amount=input("enter the amount :")
+    insert_transaction(amount)
+    read_transactions()
+    update_transaction(1, 150)
+    delete_transaction(2)
+    read_transactions()
+
+except Exception as e:
+    print("Error:", e)
+
+finally:
+    # Close the database connection
+    cursor.close()
+    conn.close()
+
+
+
+
+
+
+
