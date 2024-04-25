@@ -11,18 +11,20 @@ conn = mysql.connector.connect(
 )
 
 cursor=conn.cursor()
-
+# Create a DATABASE 
 cursor.execute("create database IF NOT EXISTS company")
-
+# Create a table for demonstration
 cursor.execute("CREATE TABLE IF NOT EXISTS transcation(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(70), age INT, salary DECIMAL(10, 2))")
 
 def insert(name,age,salary):
+    # Insert a transaction into the table
     insert="insert into transcation (name,age,salary) values (%s,%s,%s)"
     cursor.execute(insert,(name,age,salary))
     conn.commit()
     print("Transcations insereted Successfully")
 
 def read():
+    # Read all transactions from the table
     read="select * from transcation"
     cursor.execute(read)
     trans=cursor.fetchall()
@@ -31,12 +33,14 @@ def read():
         print(i)
 
 def update(id,new_value):
+    # Update a transaction
     update=f"update transcation set salary={new_value} where id = {id}"
     cursor.execute(update)
     conn.commit()
     print("update Successfull")
 
 def delete(id):
+    # Delete a transaction
     delete="delete from transcation where id=%s"
     cursor.execute(delete,(id,))
     print("Deleted Successfully")
