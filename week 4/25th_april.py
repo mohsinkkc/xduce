@@ -99,3 +99,6 @@ while True:
             break
     else:
         print("\nInvalid Option ! Kindly select the Valid Option")
+
+cursor.close()
+conn.close()
