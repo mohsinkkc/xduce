@@ -482,8 +482,11 @@ try:
     amount=input("enter the amount :")
     insert_transaction(amount)
     read_transactions()
-    update_transaction(1, 150)
-    delete_transaction(2)
+    id=input("enter the id :")
+    update_amount=int(input("enter amount to be updated:"))
+    update_transaction(id, update_amount)
+    delete_item=int(input("enter the id to delete :"))
+    delete_transaction(delete_item)
     read_transactions()
 
 except Exception as e:
