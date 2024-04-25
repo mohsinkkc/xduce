@@ -1,6 +1,17 @@
+'''
+ACID PROPERITIES : 
+
+Atomicity : ALll changes to data must be perform successfully or not at all
+
+Consistence : Data must be consistent before and after transcation
+
+Isolated :No other can change the data while the transcation is running
+
+Durable:The change made by transcation must be persist/Not changeable unless or until updated
+
+'''
+
 import mysql.connector
-
-
 conn = mysql.connector.connect(
 
     host="localhost",
