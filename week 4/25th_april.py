@@ -50,6 +50,11 @@ def update(id,new_value):
     conn.commit()
     print("update Successfull")
 
+def update_name(id,new_name):
+    up="update transcation set name=%s where id=%s"
+    cursor.execute(up,(new_name,id))
+    print("The name has been Updated successfully")
+
 def delete(id):
     # Delete a transaction
     delete="delete from transcation where id=%s"
@@ -62,9 +67,11 @@ while True:
 
         1) To insert the data select 1
         2) To Fetch the data select 2
-        3) To update the Data select 3
-        4) Delete the Data select 4
-        5) EXIT
+        3) To update the salary select 3
+        4) update the name select 4
+        5) Delete name select 5 
+        6)Exit
+
     ''')
     Option=input("Enter your option :")
 
@@ -82,8 +89,12 @@ while True:
             new_value=int(input("enter the new salary amount to be update:"))
             update(id,new_value)
         elif Option==4:
-            id="Enter the id to be deleted :"
-            delete(id)
+            id=int(input("Enter the id to be updated :"))
+            new_name=input("Enter the name : ")
+            update_name(id,new_name)
+        elif Option==5:
+             id=int(input("Enter the id to be deleted :"))
+             delete(id)
         else:
             break
     else:
