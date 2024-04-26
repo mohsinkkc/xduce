@@ -593,6 +593,19 @@ cursor.close()
 conn.close()
 
 
+#==============================Unit test===============================================================
+import unittest
+
+class Teststring(unittest.TestCase):
+    def test_upper(self):
+        self.assertEqual('mohisn'.upper(),'MOHSIN')
+
+    def test_isupper(self):
+        self.assertTrue('MOHSIN'.isupper())
+        self.assertFalse('Mohsin'.isupper())
+
+if __name__=="__main__":
+    unittest.main()
 
 
 
