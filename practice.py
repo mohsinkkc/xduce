@@ -609,3 +609,28 @@ if __name__=="__main__":
 
 
 
+#========================================================================================
+
+import pyodbc
+
+DRIVER_name='SQL Server'
+Server_name='Mohasin-DTS'
+Database_name='master'
+
+connection_string=f"""
+
+driver={{{DRIVER_name}}};
+server={Server_name};
+database={Database_name};
+Trusted_Connection=yes;
+"""
+
+
+try:
+    connection = pyodbc.connect(connection_string)
+    # connection.autocommit = True
+    # connection.execute('create database company')
+    print("Database created",connection)
+
+except pyodbc.Error as ex:
+    print("Connection failed:", ex)
