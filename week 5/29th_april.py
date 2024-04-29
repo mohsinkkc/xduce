@@ -1,47 +1,29 @@
-# pip install pyodbc
-# import pyodbc 
-# create a connection 
 import pyodbc
+import pandas as pd
+
+server_name=r'MOHASIN-DTS'
+database_name='company'
+username='sa'
+password='XDuce@123'
 
 try:
-    connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
-                                    'Server=MOHASIN-DTS;'
-                                    'Database=company;'
-                                    'Trusted_Connection=yes;'
-                                    'uid=sa;'
-                                    'psw=XDuce@123'
-                                )
+    conn=f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server_name};DATABASE={database_name};uid={username};pwd={password}'
+
+    connection=pyodbc.connect(conn)
+    print('connected')
+    cursor=connection.cursor()
+
+    # cursor.execute("INSERT INTO employee (id,name) VALUES (5,'dhruv'),(6,'kkc')")
+
+    query = cursor.execute("SELECT * FROM employee;")
+    data = query.fetchall()
     
-    # ds = connection.cursor()
-    # all='select * from employee'
-    # ds.execute(all)
-    # row = ds.fetchall()
+    
+    print(data)
+    connection.commit()
+    print('Data Fetch Successfully')
 
-    # for i in row:
-    #     print(i)
-    # conn.commit()
-    print("database created")
-
-except pyodbc.Error as ex:
-    print("Connection failed:", ex)
-
-
-# conn=('Driver={ODBC Driver 17 for SQL Server};',
-#                     'Server=MOHASIN-DTS;',
-#                     'Database=company',
-#                     'Trusted_Connection=yes'
-#                     )
-
-# connection=pyodbc.connect(conn)
-# cursor=connection.cursor()
-# cursor.execute("SELECT * FROM employee")
-
-# for i in cursor:
-#     print(i)
-
-# cursor.commit()
-# print("database connected")
-
-
+except Exception as e:
+    print("ERROR :",e)
 
 
