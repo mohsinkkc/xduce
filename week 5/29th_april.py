@@ -18,7 +18,16 @@ try:
     query = cursor.execute("SELECT * FROM employee;")
     data = query.fetchall()
     
-    
+    delete = "DELETE FROM employee WHERE id = 5"
+    cursor.execute(delete)
+    connection.commit()
+    print("Data deleted Successfully")
+
+    update="UPDATE employee set name='dev' where id=6 "
+    cursor.execute(update)
+    connection.commit()
+    print("Data has updated successfully ")
+
     print(data)
     connection.commit()
     print('Data Fetch Successfully')

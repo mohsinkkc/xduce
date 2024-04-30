@@ -613,24 +613,70 @@ if __name__=="__main__":
 
 import pyodbc
 
-DRIVER_name='SQL Server'
 Server_name='Mohasin-DTS'
 Database_name='master'
+uid='sa'
+password='XDuce@123'
 
 connection_string=f"""
 
-driver={{{DRIVER_name}}};
+driver={{ODBC Driver 17 for SQL Server}};
 server={Server_name};
 database={Database_name};
-Trusted_Connection=yes;
+Uid={uid};pswd={password}
 """
 
 
 try:
     connection = pyodbc.connect(connection_string)
-    # connection.autocommit = True
-    # connection.execute('create database company')
+    cursor=connection.cursor()
+    cursor.execute('Select * FROM employee')
     print("Database created",connection)
 
 except pyodbc.Error as ex:
     print("Connection failed:", ex)
+
+
+#===================================================Unit test ======================================================================
+import unittest
+from employee import Employee 
+
+
+class UnittestEmployee(unittest.TestCase):
+
+    def setUp(self):
+        self.emp1=Employee('mohmad','mohsin',50000)
+        self.emp2=Employee('devanshu','chauhan',60000)
+
+    def test_mail(self):
+        self.assertEqual(self.emp1.email(),'mohmad.mohsin@gmail.com')
+        self.assertEqual(self.emp2.email(),'devanshu.chauhan@gmail.com')
+
+        self.emp1.first_name='kkc'
+        self.emp2.first_name='dev'
+
+        self.assertEqual(self.emp1.email(),'kkc.mohsin@gmail.com')
+        self.assertEqual(self.emp2.email(),'dev.chauhan@gmail.com')
+
+    def test_full(self):
+        
+        self.assertEqual(self.emp1.fullname(),'mohmad mohsin')
+        self.assertEqual(self.emp2.fullname(),'devanshu chauhan')
+
+        self.emp1.first_name='king'
+        self.emp2.first_name='dev'
+
+        self.assertEqual(self.emp1.fullname(),'king mohsin')
+        self.assertEqual(self.emp2.fullname(),'dev chauhan')
+
+    def test_apply_raise(self):
+        
+        self.emp1.apply_raise()
+        self.emp2.apply_raise()
+
+        self.assertEqual(self.emp1.pay,52500)
+        self.assertEqual(self.emp2.pay,63000)
+
+if __name__=='__main__':
+    unittest.main()
+        
