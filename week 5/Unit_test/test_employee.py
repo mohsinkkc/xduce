@@ -8,12 +8,11 @@ class UnittestEmployee(unittest.TestCase):
         self.emp2=Employee('devanshu','chauhan',60000)
 
     def test_email(self):
-
         self.assertEqual(self.emp1.email(),'mohsin.kkc@gmail.com')
         self.assertEqual(self.emp2.email(),'devanshu.chauhan@gmail.com')
 
-        self.emp1='mohmad'
-        self.emp2='dev'
+        self.emp1.first_name='mohmad'
+        self.emp2.first_name='dev'
 
         self.assertEqual(self.emp1.email(),'mohmad.kkc@gmail.com')
         self.assertEqual(self.emp2.email(),'dev.chauhan@gmail.com')
@@ -23,10 +22,10 @@ class UnittestEmployee(unittest.TestCase):
         self.assertEqual(self.emp1.fullname(),'mohsin kkc')
         self.assertEqual(self.emp2.fullname(),'devanshu chauhan')
 
-        self.emp1='mohmad'
-        self.emp2='dev'
+        self.emp1.first_name='king'
+        self.emp2.first_name='dev'
 
-        self.assertEqual(self.emp1.fullname(),'mohmad kkc')
+        self.assertEqual(self.emp1.fullname(),'king kkc')
         self.assertEqual(self.emp2.fullname(),'dev chauhan')
 
     def test_apply_raise(self):

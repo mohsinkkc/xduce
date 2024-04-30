@@ -8,10 +8,10 @@ class Employee:
         self.pay=pay
 
     def email(self):
-        return '{}.{}@gmail.com'.format(self.first_name,self.last_name)
+        return f'{self.first_name}.{self.last_name}@gmail.com'
 
     def fullname(self):
-        return '{} {}'.format(self.first_name,self.last_name)
+        return f'{self.first_name} {self.last_name}'
 
     def apply_raise(self):
         self.pay=int(self.pay * self.raise_amt)
