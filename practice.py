@@ -669,11 +669,6 @@ class UnittestEmployee(unittest.TestCase):
         self.assertEqual(self.emp1.fullname(),'king mohsin')
         self.assertEqual(self.emp2.fullname(),'dev chauhan')
 
-
-
-
-
-
     def test_apply_raise(self):
         
         self.emp1.apply_raise()
