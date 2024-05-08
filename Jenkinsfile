@@ -14,7 +14,7 @@ pipeline {
                     bat 'dir'
                     
                     // Execute the Python script directly
-                    bat 'python week 1/2-april.py'
+                    bat 'python week_1/2-april.py'
                 }
             }
         }
