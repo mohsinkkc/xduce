@@ -63,7 +63,7 @@ def main():
     odd(a)
     prime(a)
     postive(a)
-    palidrome(b)
+    # palidrome(b)
     if is_pali(a):
         print(" it is a palindrome!")
     else:
