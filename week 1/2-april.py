@@ -56,9 +56,10 @@ def is_pali(a):
 main section where the each and every function has been called here
 '''
 def main():
-    a = int(input("enter number:"))
+    # a = int(input("enter number:"))
     #b=int(input("enter the word :"))
     #odd(a)
+    a=5
     # prime(a)
     #postive(a)
     #palidrome(b)
