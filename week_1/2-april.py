@@ -58,11 +58,12 @@ main section where the each and every function has been called here
 def main():
     # a = int(input("enter number:"))
     #b=int(input("enter the word :"))
-    #odd(a)
     a=5
-    # prime(a)
-    #postive(a)
-    #palidrome(b)
+    b=9
+    odd(a)
+    prime(a)
+    postive(a)
+    palidrome(b)
     if is_pali(a):
         print(" it is a palindrome!")
     else:
