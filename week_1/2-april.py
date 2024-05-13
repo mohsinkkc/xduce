@@ -31,11 +31,11 @@ def postive(a):
         print("the number is negative ")
  #======================================== palidrome ==============================================================   
 
-def palidrome(b):
-    if b == b[::-1]:
-        print("word is palidrome")
-    else:
-        print("word is not palidrome")
+# def palidrome(b):
+#     if b == b[::-1]:
+#         print("word is palidrome")
+#     else:
+#         print("word is not palidrome")
 
 #===========================================================================================================
 '''
