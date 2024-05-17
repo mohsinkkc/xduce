@@ -22,6 +22,20 @@
 -- 19) Retrieve students who are not subject in 'History' or 'Art'.
 -- 20)Delete all students who are older than 23 years.
 
+-- Advanced Questions
+
+-- 21) Find the most common major among students and the number of students in that major.
+-- 22) Retrieve the details of students who share the same first name as any other student.
+-- 23) Calculate the difference in age between the youngest and the oldest student.
+-- 24) Find students whose full names have more than 10 characters (considering both first and last names combined).
+-- 25) List the students along with their rank based on their age, from oldest to youngest.
+-- 26) Retrieve the top 3 youngest students for each major.
+-- 27) Find the major with the highest average age and the corresponding average age.
+-- 28) Identify students who have the same last name as any other student but a different first name.
+-- 29) Calculate the cumulative age of students ordered by their first name.
+-- 30) Find the student(s) who have the second highest age in the entire table.
+
+
 -- Create the student table
 CREATE TABLE student (
     id INT IDENTITY(1,1) PRIMARY KEY,
