@@ -100,7 +100,7 @@ SELECT COUNT(id),subject from student
 GROUP by subject;
 
 -- 10) Add a new student named 'Tom Hanks', aged 24, subjecting in 'Theater'.
-INSERT INTO student (first_name, last_name, age, subject) VALUES ('Tom', 'Hanks', 24, 'Theater');
+INSERT INTO student (first_name, last_name, age, subject) VALUES('Mohsin', 'Anderson', 21, 'Philosophy');
 
 
 --  Intermediate Questions
@@ -223,6 +223,8 @@ FROM student;
 SELECT * from student 
 ORDER by age DESC
 OFFSETS 1;
+
+
 
 
 SELECT * FROM student;
