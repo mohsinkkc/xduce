@@ -15,13 +15,17 @@ as SELECT * FROM student WHERE subject=@subject AND age=@age;
 EXEC stu3 @subject='Theater',@age=24 ;
 
 CREATE FUNCTION fn_getdata(@subject varchar(55))
-RETURN TABLE
+RETURNS TABLE
 as RETURN
 (
     SELECT * from student WHERE subject=@subject
-
 )
+GO
+
 
 SELECT * FROM fn_getdata('Philosophy');
+GO
+
 
 select * from student;
+GO
