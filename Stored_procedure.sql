@@ -4,6 +4,8 @@ GO;
 
 EXEC newstudent2;
 
+drop procedure stu1;
+
 CREATE PROCEDURE stu1 @subject VARCHAR(55)
 as SELECT * from student WHERE subject=@subject ;
 
@@ -22,6 +24,7 @@ as RETURN
 )
 GO
 
+create index indx_name on student(subject);
 
 SELECT * FROM fn_getdata('Philosophy');
 GO
