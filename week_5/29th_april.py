@@ -22,6 +22,7 @@ try:
     cursor.execute(delete)
     connection.commit()
     print("Data deleted Successfully")
+    
 
     update="UPDATE employee set name='dev' where id=6 "
     cursor.execute(update)
