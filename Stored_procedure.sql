@@ -24,6 +24,7 @@ as RETURN
 )
 GO
 
+
 create index indx_name on student(subject);
 
 SELECT * FROM fn_getdata('Philosophy');
