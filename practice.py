@@ -327,6 +327,7 @@ print(" Is c10 < c9 :",c10 < c9)
 # max_score=25
 # player_score=[0 for _ in range(player)]
 
+
 # while max(player_score) < max_score:
 #     for player_indx in range(player):
 #         print("\nthe player", player_indx + 1," turn has started\n")
